@@ -37,5 +37,39 @@ namespace WPFUI
         private void OnButton_MoveEast(object sender, RoutedEventArgs e) => _gameSession.MoveEast();
 
         private void OnButton_MoveSouth(object sender, RoutedEventArgs e) => _gameSession.MoveSouth();
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+
+            switch (e.Key) {
+                case Key.W:
+                case Key.Up:
+                    if (_gameSession.HasLocationToNorth) {
+                        _gameSession.MoveNorth();
+                    }
+                    break;
+                case Key.A:
+                case Key.Left:
+                    if (_gameSession.HasLocationToWest) {
+                        _gameSession.MoveWest();
+                    }
+                    break;
+                case Key.D:
+                case Key.Right:
+                    if (_gameSession.HasLocationToEast) {
+                        _gameSession.MoveEast();
+                    }
+                    break;
+                case Key.S:
+                case Key.Down:
+                    if (_gameSession.HasLocationToSouth) {
+                        _gameSession.MoveSouth();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

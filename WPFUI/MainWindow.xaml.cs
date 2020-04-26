@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Engine.ViewModels;
 using System.Windows;
 using System.Windows.Input;
-using Engine.ViewModels;
 
 namespace WPFUI
 {
@@ -33,27 +32,19 @@ namespace WPFUI
             switch (e.Key) {
                 case Key.W:
                 case Key.Up:
-                    if (_gameSession.HasLocationToNorth) {
-                        _gameSession.MoveNorth();
-                    }
+                    _gameSession.MoveNorth();
                     break;
                 case Key.A:
                 case Key.Left:
-                    if (_gameSession.HasLocationToWest) {
-                        _gameSession.MoveWest();
-                    }
+                    _gameSession.MoveWest();
                     break;
                 case Key.D:
                 case Key.Right:
-                    if (_gameSession.HasLocationToEast) {
-                        _gameSession.MoveEast();
-                    }
+                    _gameSession.MoveEast();
                     break;
                 case Key.S:
                 case Key.Down:
-                    if (_gameSession.HasLocationToSouth) {
-                        _gameSession.MoveSouth();
-                    }
+                    _gameSession.MoveSouth();
                     break;
                 case Key.Escape:
                     Close();

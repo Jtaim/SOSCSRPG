@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Engine.Models
+﻿namespace Engine.Models
 {
     public class Location
     {

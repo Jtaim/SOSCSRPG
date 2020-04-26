@@ -4,6 +4,9 @@ using Engine.Factories;
 
 namespace Engine.ViewModels
 {
+    /// <summary>
+    /// Model View 
+    /// </summary>
     public class GameSession
     {
         public World CurrentWorld { get; set; }

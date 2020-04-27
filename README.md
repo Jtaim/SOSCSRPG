@@ -10,7 +10,7 @@ Using [Visual Studio Community 2019](https://www.visualstudio.com/en-us/products
 WPF.Net FrameworkVersion:  4.7.2<br>
 
 ### Resources:
-- [Scott Lilly's](https://scottlilly.com/build-a-cwpf-rpg/) tutorial series.
+- [Scott Lilly](https://scottlilly.com/)
 - [Additional .Net development information](https://dotnet.microsoft.com/download)
 - [.NET documentation](https://docs.microsoft.com/en-us/dotnet/)
 - [.Net on GitHub](https://github.com/dotnet)

@@ -8,7 +8,7 @@ namespace Engine.Models
 
         internal void AddLocation(int xCoordinate, int yCoordinate, string name, string description, string imageName)
         {
-            Location loc = new Location() {
+            var loc = new Location() {
                 XCoordinate = xCoordinate,
                 YCoordinate = yCoordinate,
                 Name = name,

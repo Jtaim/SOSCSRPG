@@ -1,9 +1,6 @@
 ﻿using Engine.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Engine.Factories
 {
@@ -13,23 +10,13 @@ namespace Engine.Factories
 
         static QuestFactory()
         {
-            // Declare the items needed to complete the quest and its reward items
-            var itemsToComplete = new List<ItemQuantity>()
-            {
-                new ItemQuantity(9001, 5)
-            };
-            var rewardItems = new List<ItemQuantity>()
-            {
-                new ItemQuantity(1002, 1)
-            };
-
             // Create the quest
             _quests.Add(new Quest(1,
                 "Clear the herb garden",
                 "Defeat the snakes in the Herbalist's garden",
-                itemsToComplete,
+                new List<ItemQuantity>() { new ItemQuantity(9001, 5) },
                 25, 10,
-                rewardItems));
+                new List<ItemQuantity>() { new ItemQuantity(1002, 1) }));
         }
 
         internal static Quest GetQuestByID(int id) => _quests.FirstOrDefault(quest => quest.ID == id);

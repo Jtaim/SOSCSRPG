@@ -57,13 +57,17 @@ namespace Engine.ViewModels
 
         public Weapon CurrentWeapon { get; set; }
 
-        public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
+        public bool HasLocationToNorth =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
 
-        public bool HasLocationToEast => CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate) != null;
+        public bool HasLocationToEast =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate) != null;
 
-        public bool HasLocationToSouth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1) != null;
+        public bool HasLocationToSouth =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1) != null;
 
-        public bool HasLocationToWest => CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
+        public bool HasLocationToWest =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
 
         public bool HasMonster => CurrentMonster != null;
 
@@ -126,7 +130,8 @@ namespace Engine.ViewModels
             }
         }
 
-        private void GetMonsterAtLocation() => CurrentMonster = CurrentLocation.GetMonster();
+        private void GetMonsterAtLocation() =>
+            CurrentMonster = CurrentLocation.GetMonster();
 
         public void AttackCurrentMonster()
         {
@@ -189,6 +194,7 @@ namespace Engine.ViewModels
             }
         }
 
-        private void RaiseMessage(string message) => OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
+        private void RaiseMessage(string message) =>
+            OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
     }
 }

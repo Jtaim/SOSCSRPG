@@ -13,7 +13,7 @@ namespace Engine.Models
                 YCoordinate = yCoordinate,
                 Name = name,
                 Description = description,
-                ImageName = imageName
+                ImageName = $"/Engine;component/Images/Locations/{imageName}"
             };
 
             _locations.Add(loc);

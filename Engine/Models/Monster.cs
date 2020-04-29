@@ -32,7 +32,7 @@ namespace Engine.Models
             int rewardExperiencePoints, int rewardGold)
         {
             Name = name;
-            ImageName = string.Format($"/Engine;component/Images/Monsters/{imageName}");
+            ImageName = $"/Engine;component/Images/Monsters/{imageName}";
             //In some environments(I don’t know which ones), the program has trouble finding the image resource. 
             //ImageName = string.Format("pack://application:,,,/Engine;component/Images/Monsters/{0}", imageName);
             MaximumHitPoints = maximumHitPoints;

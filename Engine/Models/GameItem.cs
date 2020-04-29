@@ -13,6 +13,6 @@
             Price = price;
         }
 
-        public GameItem Clone => new GameItem(ItemTypeID, Name, Price);
+        public GameItem Clone() => new GameItem(ItemTypeID, Name, Price);
     }
 }

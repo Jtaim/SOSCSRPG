@@ -37,6 +37,15 @@ namespace WPFUI
             GameMessages.ScrollToEnd();
         }
 
+        private void OnClick_DsiplayTradeScreen(object sender, RoutedEventArgs e)
+        {
+            var tradeScreen = new TradeScreen {
+                Owner = this,
+                DataContext = _gameSession
+            };
+            tradeScreen.ShowDialog();
+        }
+
         private void Window_OnKeyDown(object sender, KeyEventArgs e)
         {
             base.OnKeyDown(e);

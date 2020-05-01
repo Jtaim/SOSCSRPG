@@ -129,8 +129,9 @@ namespace Engine.Models
         {
             Inventory.Remove(item);
 
-            var groupedInventoryItemToRemove =
-                GroupedInventory.FirstOrDefault(gi => gi.Item == item);
+            var groupedInventoryItemToRemove = item.IsUnique ?
+                GroupedInventory.FirstOrDefault(gi => gi.Item == item) :
+                GroupedInventory.FirstOrDefault(gi => gi.Item.ItemTypeID == item.ItemTypeID);
 
             if (groupedInventoryItemToRemove != null) {
                 if (groupedInventoryItemToRemove.Quantity == 1) {

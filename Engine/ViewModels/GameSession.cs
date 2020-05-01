@@ -6,9 +6,6 @@ using System.Linq;
 
 namespace Engine.ViewModels
 {
-    /// <summary>
-    /// Model View - View Model 
-    /// </summary>
     public class GameSession : BaseNotificationClass
     {
         public event EventHandler<GameMessageEventArgs> OnMessageRaised;
@@ -26,12 +23,14 @@ namespace Engine.ViewModels
             set
             {
                 if (_currentPlayer != null) {
+                    _currentPlayer.OnLeveledUp -= OnCurrentPlayerLeveledUp;
                     _currentPlayer.OnKilled -= OnCurrentPlayerKilled;
                 }
 
                 _currentPlayer = value;
 
                 if (_currentPlayer != null) {
+                    _currentPlayer.OnLeveledUp += OnCurrentPlayerLeveledUp;
                     _currentPlayer.OnKilled += OnCurrentPlayerKilled;
                 }
             }
@@ -170,17 +169,17 @@ namespace Engine.ViewModels
                         RaiseMessage($"You completed the '{quest.Name}' quest");
 
                         // Give the player the quest rewards
-                        CurrentPlayer.ExperiencePoints += quest.RewardExperiencePoints;
                         RaiseMessage($"You receive {quest.RewardExperiencePoints} experience points");
+                        CurrentPlayer.AddExperience(quest.RewardExperiencePoints);
 
-                        CurrentPlayer.ReceiveGold(quest.RewardGold);
                         RaiseMessage($"You receive {quest.RewardGold} gold");
+                        CurrentPlayer.ReceiveGold(quest.RewardGold);
 
                         foreach (var itemQuantity in quest.RewardItems) {
-                            GameItem rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
+                            var rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
 
-                            CurrentPlayer.AddItemToInventory(rewardItem);
                             RaiseMessage($"You receive a {rewardItem.Name}");
+                            CurrentPlayer.AddItemToInventory(rewardItem);
                         }
 
                         // Mark the Quest as completed
@@ -215,8 +214,7 @@ namespace Engine.ViewModels
             }
         }
 
-        private void GetMonsterAtLocation() =>
-            CurrentMonster = CurrentLocation.GetMonster();
+        private void GetMonsterAtLocation() => CurrentMonster = CurrentLocation.GetMonster();
 
         public void AttackCurrentMonster()
         {
@@ -226,7 +224,7 @@ namespace Engine.ViewModels
             }
 
             // Determine damage to monster
-            int damageToMonster = RandomNumberGenerator.NumberBetween(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage);
+            var damageToMonster = RandomNumberGenerator.NumberBetween(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage);
 
             if (damageToMonster == 0) {
                 RaiseMessage($"You missed the {CurrentMonster.Name}.");
@@ -242,7 +240,7 @@ namespace Engine.ViewModels
             }
             else {
                 // Let the monster attack
-                int damageToPlayer = RandomNumberGenerator.NumberBetween(CurrentMonster.MinimumDamage, CurrentMonster.MaximumDamage);
+                var damageToPlayer = RandomNumberGenerator.NumberBetween(CurrentMonster.MinimumDamage, CurrentMonster.MaximumDamage);
 
                 if (damageToPlayer == 0) {
                     RaiseMessage($"The {CurrentMonster.Name} attacks, but misses you.");
@@ -269,7 +267,7 @@ namespace Engine.ViewModels
             RaiseMessage($"You defeated the {CurrentMonster.Name}!");
 
             RaiseMessage($"You receive {CurrentMonster.RewardExperiencePoints} experience points.");
-            CurrentPlayer.ExperiencePoints += CurrentMonster.RewardExperiencePoints;
+            CurrentPlayer.AddExperience(CurrentMonster.RewardExperiencePoints);
 
             RaiseMessage($"You receive {CurrentMonster.Gold} gold.");
             CurrentPlayer.ReceiveGold(CurrentMonster.Gold);
@@ -280,7 +278,8 @@ namespace Engine.ViewModels
             }
         }
 
-        private void RaiseMessage(string message) =>
-            OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
+        private void OnCurrentPlayerLeveledUp(object sender, System.EventArgs eventArgs) => RaiseMessage($"You are now level {CurrentPlayer.Level}!");
+
+        private void RaiseMessage(string message) => OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
     }
 }

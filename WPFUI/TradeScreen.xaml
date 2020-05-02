@@ -23,7 +23,7 @@
         <Label Grid.Row="0" Grid.Column="0"
                Grid.ColumnSpan="2"
                HorizontalAlignment="Center"
-               Content="{Binding CurrentTrader.Name}"/>
+               Content="{Binding CurrentTrader.Name, Mode=OneWay}"/>
         <Label Grid.Row="1" Grid.Column="0"
                HorizontalAlignment="Center"
                Content="Your Inventory"/>
@@ -33,7 +33,7 @@
         <!--Player Inventory-->
         <DataGrid Grid.Row="2" Grid.Column="0"
                Margin="10"
-               ItemsSource="{Binding CurrentPlayer.GroupedInventory}"
+               ItemsSource="{Binding CurrentPlayer.GroupedInventory, Mode=OneWay}"
                AutoGenerateColumns="False"
                HeadersVisibility="Column"
                CanUserAddRows="False"
@@ -43,15 +43,15 @@
                 <DataGridTextColumn Header="Description"
                                     IsReadOnly="True"
                                     Width="*"
-                                    Binding="{Binding Path=Item.Name}"/>
+                                    Binding="{Binding Path=Item.Name, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Qty"
                                     IsReadOnly="True"
                                     Width="Auto"
-                                    Binding="{Binding Quantity}"/>
+                                    Binding="{Binding Quantity, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Price"
                                     IsReadOnly="True"
                                     Width="Auto"
-                                    Binding="{Binding Path=Item.Price}"/>
+                                    Binding="{Binding Path=Item.Price, Mode=OneWay}"/>
                 <DataGridTemplateColumn MinWidth="75">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -66,7 +66,7 @@
         <!--Traders Inventory-->
         <DataGrid Grid.Row="2" Grid.Column="1"
                   Margin="10"
-                  ItemsSource="{Binding CurrentTrader.GroupedInventory}"
+                  ItemsSource="{Binding CurrentTrader.GroupedInventory, Mode=OneWay}"
                   AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   CanUserAddRows="False"
@@ -76,15 +76,15 @@
                 <DataGridTextColumn Header="Description"
                                     IsReadOnly="True"
                                     Width="*"
-                                    Binding="{Binding Path=Item.Name}"/>
+                                    Binding="{Binding Path=Item.Name, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Qty"
                                     IsReadOnly="True"
                                     Width="Auto"
-                                    Binding="{Binding Quantity}"/>
+                                    Binding="{Binding Quantity, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Price"
                                     IsReadOnly="True"
                                     Width="Auto"
-                                    Binding="{Binding Path=Item.Price}"/>
+                                    Binding="{Binding Path=Item.Price, Mode=OneWay}"/>
                 <DataGridTemplateColumn MinWidth="75">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

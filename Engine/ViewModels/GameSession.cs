@@ -23,6 +23,7 @@ namespace Engine.ViewModels
             get => _currentPlayer;
             set {
                 if(_currentPlayer != null) {
+                    _currentPlayer.OnActionPerformed -= OnCurrentPlayerPerformedAction;
                     _currentPlayer.OnLeveledUp -= OnCurrentPlayerLeveledUp;
                     _currentPlayer.OnKilled -= OnCurrentPlayerKilled;
                 }
@@ -30,6 +31,7 @@ namespace Engine.ViewModels
                 _currentPlayer = value;
 
                 if(_currentPlayer != null) {
+                    _currentPlayer.OnActionPerformed += OnCurrentPlayerPerformedAction;
                     _currentPlayer.OnLeveledUp += OnCurrentPlayerLeveledUp;
                     _currentPlayer.OnKilled += OnCurrentPlayerKilled;
                 }
@@ -83,8 +85,6 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(HasTrader));
             }
         }
-
-        public GameItem CurrentWeapon { get; set; }
 
         public bool HasLocationToNorth
             => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
@@ -212,21 +212,12 @@ namespace Engine.ViewModels
 
         public void AttackCurrentMonster()
         {
-            if(CurrentWeapon == null) {
+            if(CurrentPlayer.CurrentWeapon == null) {
                 RaiseMessage("You must select a weapon, to attack.");
                 return;
             }
 
-            // Determine damage to monster
-            var damageToMonster = RandomNumberGenerator.NumberBetween(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage);
-
-            if(damageToMonster == 0) {
-                RaiseMessage($"You missed the {CurrentMonster.Name}.");
-            }
-            else {
-                RaiseMessage($"You hit the {CurrentMonster.Name} for {damageToMonster} points.");
-                CurrentMonster.TakeDamage(damageToMonster);
-            }
+            CurrentPlayer.UseCurrentWeaponOn(CurrentMonster);
 
             if(CurrentMonster.IsDead) {
                 // Get another monster to fight
@@ -245,6 +236,8 @@ namespace Engine.ViewModels
                 }
             }
         }
+
+        private void OnCurrentPlayerPerformedAction(object sender, string result) => RaiseMessage(result);
 
         private void OnCurrentPlayerKilled(object sender, System.EventArgs eventArgs)
         {

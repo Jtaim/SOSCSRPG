@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Engine.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Engine.ViewModels;
 
 namespace TestEngine.ViewModels
 {

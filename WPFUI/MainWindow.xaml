@@ -214,10 +214,9 @@
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox
-                    Grid.Row="0" Grid.Column="0"
-                    ItemsSource="{Binding CurrentPlayer.Weapons, Mode=OneWay}"
-                    SelectedItem="{Binding CurrentWeapon}"
+                <ComboBox Grid.Row="0" Grid.Column="0"
+                    ItemsSource="{Binding CurrentPlayer.Weapons}"
+                    SelectedItem="{Binding CurrentPlayer.CurrentWeapon}"
                     DisplayMemberPath="Name"
                     SelectedValuePath="ItemTypeID"/>
                 <Button Grid.Row="0" Grid.Column="2"

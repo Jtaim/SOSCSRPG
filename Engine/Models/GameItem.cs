@@ -28,7 +28,7 @@
             MaximumDamage = maximumDamage;
         }
 
-        public GameItem Clone() =>
-            new GameItem(Category, ItemTypeID, Name, Price, IsUnique, MinimumDamage, MaximumDamage);
+        public GameItem Clone()
+            => new GameItem(Category, ItemTypeID, Name, Price, IsUnique, MinimumDamage, MaximumDamage);
     }
 }

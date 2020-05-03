@@ -12,21 +12,17 @@ namespace Engine.Models
         private string _characterClass;
         private int _experiencePoints;
 
-        public string CharacterClass
-        {
+        public string CharacterClass {
             get => _characterClass;
-            set
-            {
+            set {
                 _characterClass = value;
                 OnPropertyChanged();
             }
         }
 
-        public int ExperiencePoints
-        {
+        public int ExperiencePoints {
             get => _experiencePoints;
-            private set
-            {
+            private set {
                 _experiencePoints = value;
                 OnPropertyChanged();
                 SetLevelAndMaximumHitPoints();
@@ -51,8 +47,8 @@ namespace Engine.Models
 
         public bool HasAllTheseItems(List<ItemQuantity> items)
         {
-            foreach (var item in items) {
-                if (Inventory.Count(i => i.ItemTypeID == item.ItemID) < item.Quantity) {
+            foreach(var item in items) {
+                if(Inventory.Count(i => i.ItemTypeID == item.ItemID) < item.Quantity) {
                     return false;
                 }
             }
@@ -70,7 +66,7 @@ namespace Engine.Models
 
             Level = (ExperiencePoints / 100) + 1;
 
-            if (Level != originalLevel) {
+            if(Level != originalLevel) {
                 MaximumHitPoints = Level * 10;
 
                 OnLeveledUp?.Invoke(this, System.EventArgs.Empty);

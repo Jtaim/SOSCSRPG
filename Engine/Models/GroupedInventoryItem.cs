@@ -5,21 +5,17 @@
         private GameItem _item;
         private int _quantity;
 
-        public GameItem Item
-        {
+        public GameItem Item {
             get => _item;
-            set
-            {
+            set {
                 _item = value;
                 OnPropertyChanged(nameof(Item));
             }
         }
 
-        public int Quantity
-        {
+        public int Quantity {
             get => _quantity;
-            set
-            {
+            set {
                 _quantity = value;
                 OnPropertyChanged(nameof(Quantity));
             }

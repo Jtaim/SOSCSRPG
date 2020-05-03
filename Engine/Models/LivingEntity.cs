@@ -15,51 +15,41 @@ namespace Engine.Models
         private int _gold;
         private int _level;
 
-        public string Name
-        {
+        public string Name {
             get => _name;
-            private set
-            {
+            private set {
                 _name = value;
                 OnPropertyChanged();
             }
         }
 
-        public int CurrentHitPoints
-        {
+        public int CurrentHitPoints {
             get => _currentHitPoints;
-            private set
-            {
+            private set {
                 _currentHitPoints = value;
                 OnPropertyChanged();
             }
         }
 
-        public int MaximumHitPoints
-        {
+        public int MaximumHitPoints {
             get => _maximumHitPoints;
-            protected set
-            {
+            protected set {
                 _maximumHitPoints = value;
                 OnPropertyChanged();
             }
         }
 
-        public int Gold
-        {
+        public int Gold {
             get => _gold;
-            private set
-            {
+            private set {
                 _gold = value;
                 OnPropertyChanged();
             }
         }
 
-        public int Level
-        {
+        public int Level {
             get => _level;
-            protected set
-            {
+            protected set {
                 _level = value;
                 OnPropertyChanged();
             }
@@ -69,8 +59,8 @@ namespace Engine.Models
 
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
 
-        public List<GameItem> Weapons =>
-            Inventory.Where(i => i.Category == GameItem.ItemCategory.Weapon).ToList();
+        public List<GameItem> Weapons
+            => Inventory.Where(i => i.Category == GameItem.ItemCategory.Weapon).ToList();
 
         public bool IsDead => CurrentHitPoints <= 0;
 
@@ -94,7 +84,7 @@ namespace Engine.Models
         {
             CurrentHitPoints -= hitPointsOfDamage;
 
-            if (IsDead) {
+            if(IsDead) {
                 CurrentHitPoints = 0;
                 RaiseOnKilledEvent();
             }
@@ -104,7 +94,7 @@ namespace Engine.Models
         {
             CurrentHitPoints += hitPointsToHeal;
 
-            if (CurrentHitPoints > MaximumHitPoints) {
+            if(CurrentHitPoints > MaximumHitPoints) {
                 CurrentHitPoints = MaximumHitPoints;
             }
         }
@@ -115,7 +105,7 @@ namespace Engine.Models
 
         public void SpendGold(int amountOfGold)
         {
-            if (amountOfGold > Gold) {
+            if(amountOfGold > Gold) {
                 throw new ArgumentOutOfRangeException($"{Name} only has {Gold} gold, and cannot spend {amountOfGold} gold");
             }
             Gold -= amountOfGold;
@@ -125,11 +115,11 @@ namespace Engine.Models
         {
             Inventory.Add(item);
 
-            if (item.IsUnique) {
+            if(item.IsUnique) {
                 GroupedInventory.Add(new GroupedInventoryItem(item, 1));
             }
             else {
-                if (!GroupedInventory.Any(gi => gi.Item.ItemTypeID == item.ItemTypeID)) {
+                if(!GroupedInventory.Any(gi => gi.Item.ItemTypeID == item.ItemTypeID)) {
                     GroupedInventory.Add(new GroupedInventoryItem(item, 0));
                 }
                 GroupedInventory.First(gi => gi.Item.ItemTypeID == item.ItemTypeID).Quantity++;
@@ -146,8 +136,8 @@ namespace Engine.Models
                 GroupedInventory.FirstOrDefault(gi => gi.Item == item) :
                 GroupedInventory.FirstOrDefault(gi => gi.Item.ItemTypeID == item.ItemTypeID);
 
-            if (groupedInventoryItemToRemove != null) {
-                if (groupedInventoryItemToRemove.Quantity == 1) {
+            if(groupedInventoryItemToRemove != null) {
+                if(groupedInventoryItemToRemove.Quantity == 1) {
                     GroupedInventory.Remove(groupedInventoryItemToRemove);
                 }
                 else {

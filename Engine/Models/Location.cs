@@ -29,7 +29,7 @@ namespace Engine.Models
 
         public void AddMonster(int monsterID, int chanceOfEncountering)
         {
-            if (MonstersHere.Exists(m => m.MonsterID == monsterID)) {
+            if(MonstersHere.Exists(m => m.MonsterID == monsterID)) {
                 // This monster has already been added to this location.
                 // So, overwrite the ChanceOfEncountering with the new number.
                 MonstersHere.First(m => m.MonsterID == monsterID)
@@ -43,7 +43,7 @@ namespace Engine.Models
 
         public Monster GetMonster()
         {
-            if (MonstersHere.Any()) {
+            if(MonstersHere.Any()) {
                 // Total the percentages of all monsters at this location.
                 int totalChances = MonstersHere.Sum(m => m.ChanceOfEncountering);
 
@@ -56,9 +56,9 @@ namespace Engine.Models
                 // that is the monster to return.
                 int runningTotal = 0;
 
-                foreach (var monsterEncounter in MonstersHere) {
+                foreach(var monsterEncounter in MonstersHere) {
                     runningTotal += monsterEncounter.ChanceOfEncountering;
-                    if (randomNumber <= runningTotal) {
+                    if(randomNumber <= runningTotal) {
                         return MonsterFactory.GetMonster(monsterEncounter.MonsterID);
                     }
                 }

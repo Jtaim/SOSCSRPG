@@ -4,11 +4,9 @@
     {
         private bool _isCompleted;
         public Quest PlayerQuest { get; }
-        public bool IsCompleted
-        {
+        public bool IsCompleted {
             get => _isCompleted;
-            set
-            {
+            set {
                 _isCompleted = value;
                 OnPropertyChanged();
             }

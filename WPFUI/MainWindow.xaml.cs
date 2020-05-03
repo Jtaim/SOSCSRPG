@@ -49,7 +49,7 @@ namespace WPFUI
         private void Window_OnKeyDown(object sender, KeyEventArgs e)
         {
             base.OnKeyDown(e);
-            switch (e.Key) {
+            switch(e.Key) {
                 case Key.W:
                 case Key.Up:
                     _gameSession.MoveNorth();

@@ -29,7 +29,7 @@ namespace Engine.Factories
 
         private static void AddTraderToList(Trader trader)
         {
-            if (_traders.Any(t => t.Name == trader.Name)) {
+            if(_traders.Any(t => t.Name == trader.Name)) {
                 throw new ArgumentException($"There is already a trader named '{trader.Name}'");
             }
 

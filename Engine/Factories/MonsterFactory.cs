@@ -7,7 +7,7 @@ namespace Engine.Factories
     {
         public static Monster GetMonster(int monsterID)
         {
-            switch (monsterID) {
+            switch(monsterID) {
                 case 1:
                     Monster snake = new Monster("Snake", "Snake.png", 4, 4, 1, 2, 5, 1);
                     AddLootItem(snake, 9001, 25);
@@ -33,7 +33,7 @@ namespace Engine.Factories
 
         private static void AddLootItem(Monster monster, int itemID, int percentage)
         {
-            if (RandomNumberGenerator.NumberBetween(1, 100) <= percentage) {
+            if(RandomNumberGenerator.NumberBetween(1, 100) <= percentage) {
                 monster.AddItemToInventory(ItemFactory.CreateGameItem(itemID));
             }
         }

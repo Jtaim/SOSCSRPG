@@ -3,10 +3,7 @@ using System;
 
 namespace Engine.Actions
 {
-    /// <summary>
-    /// Command Class from the Command design pattern
-    /// </summary>
-    public class AttackWithWeapon
+    public class AttackWithWeapon : IAction
     {
         private readonly GameItem _weapon;
         private readonly int _maximumDamage;
@@ -35,7 +32,7 @@ namespace Engine.Actions
 
         public void Execute(LivingEntity actor, LivingEntity target)
         {
-            int damage = RandomNumberGenerator.NumberBetween(_maximumDamage, _maximumDamage);
+            var damage = RandomNumberGenerator.NumberBetween(_minimumDamage, _maximumDamage);
 
             if(damage == 0) {
                 ReportResult($"You missed the {target.Name.ToLower()}.");

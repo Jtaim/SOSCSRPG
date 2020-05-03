@@ -1,5 +1,6 @@
 ﻿using Engine.Actions;
 using Engine.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,6 +19,8 @@ namespace Engine.Factories
             BuildWeapon(1502, "Rat claws", 0, 0, 2);
             BuildWeapon(1503, "Spider fangs", 0, 0, 4);
 
+            BuildHealingItem(2001, "Granola bar", 5, 2);
+
             BuildMiscellaneousItem(9001, "Snake fang", 1);
             BuildMiscellaneousItem(9002, "Snake skin", 2);
             BuildMiscellaneousItem(9003, "Rat tail", 1);
@@ -34,9 +37,16 @@ namespace Engine.Factories
 
         private static void BuildWeapon(int id, string name, int price, int minimumDamage, int maximumDamage)
         {
-            GameItem weapon = new GameItem(GameItem.ItemCategory.Weapon, id, name, price, true);
+            var weapon = new GameItem(GameItem.ItemCategory.Weapon, id, name, price, true);
             weapon.Action = new AttackWithWeapon(weapon, minimumDamage, maximumDamage);
             _standardGameItems.Add(weapon);
+        }
+
+        private static void BuildHealingItem(int id, string name, int price, int hitPointsToHeal)
+        {
+            var item = new GameItem(GameItem.ItemCategory.Consumable, id, name, price);
+            item.Action = new Heal(item, hitPointsToHeal);
+            _standardGameItems.Add(item);
         }
     }
 }

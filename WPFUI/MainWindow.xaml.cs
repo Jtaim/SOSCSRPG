@@ -21,15 +21,23 @@ namespace WPFUI
             DataContext = _gameSession;
         }
 
-        private void OnButton_MoveNorth(object sender, RoutedEventArgs e) => _gameSession.MoveNorth();
+        private void OnButton_MoveNorth(object sender, RoutedEventArgs e)
+            => _gameSession.MoveNorth();
 
-        private void OnButton_MoveWest(object sender, RoutedEventArgs e) => _gameSession.MoveWest();
+        private void OnButton_MoveWest(object sender, RoutedEventArgs e)
+            => _gameSession.MoveWest();
 
-        private void OnButton_MoveEast(object sender, RoutedEventArgs e) => _gameSession.MoveEast();
+        private void OnButton_MoveEast(object sender, RoutedEventArgs e)
+            => _gameSession.MoveEast();
 
-        private void OnButton_MoveSouth(object sender, RoutedEventArgs e) => _gameSession.MoveSouth();
+        private void OnButton_MoveSouth(object sender, RoutedEventArgs e)
+            => _gameSession.MoveSouth();
 
-        private void OnClick_AttackMonster(object sender, RoutedEventArgs e) => _gameSession.AttackCurrentMonster();
+        private void OnClick_AttackMonster(object sender, RoutedEventArgs e)
+            => _gameSession.AttackCurrentMonster();
+
+        private void OnClick_UseCurrentConsumable(object sender, RoutedEventArgs e)
+            => _gameSession.UseCurrentConsumable();
 
         private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
         {

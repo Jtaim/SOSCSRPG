@@ -1,7 +1,10 @@
 ﻿using Engine.EventArgs;
 using Engine.Models;
 using Engine.ViewModels;
+using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 
@@ -13,9 +16,14 @@ namespace WPFUI
     public partial class MainWindow : Window
     {
         private readonly GameSession _gameSession = new GameSession();
+        private readonly Dictionary<Key, Action> _userInputActions =
+            new Dictionary<Key, Action>();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            InitializeUserInputActions();
 
             _gameSession.OnMessageRaised += OnGameMessageRaised;
 
@@ -46,13 +54,14 @@ namespace WPFUI
             GameMessages.ScrollToEnd();
         }
 
-        private void OnClick_DsiplayTradeScreen(object sender, RoutedEventArgs e)
+        private void OnClick_DisplayTradeScreen(object sender, RoutedEventArgs e)
         {
-            var tradeScreen = new TradeScreen {
-                Owner = this,
-                DataContext = _gameSession
-            };
-            tradeScreen.ShowDialog();
+            if(_gameSession.CurrentTrader != null) {
+                TradeScreen tradeScreen = new TradeScreen();
+                tradeScreen.Owner = this;
+                tradeScreen.DataContext = _gameSession;
+                tradeScreen.ShowDialog();
+            }
         }
 
         private void OnClick_Craft(object sender, RoutedEventArgs e)
@@ -61,31 +70,50 @@ namespace WPFUI
             _gameSession.CraftItemUsing(recipe);
         }
 
-        private void Window_OnKeyDown(object sender, KeyEventArgs e)
+        private void InitializeUserInputActions()
         {
-            base.OnKeyDown(e);
-            switch(e.Key) {
-                case Key.W:
-                case Key.Up:
-                    _gameSession.MoveNorth();
-                    break;
-                case Key.A:
-                case Key.Left:
-                    _gameSession.MoveWest();
-                    break;
-                case Key.D:
-                case Key.Right:
-                    _gameSession.MoveEast();
-                    break;
-                case Key.S:
-                case Key.Down:
-                    _gameSession.MoveSouth();
-                    break;
-                case Key.Escape:
-                    Close();
-                    break;
-                default:
-                    break;
+            // move north
+            _userInputActions.Add(Key.W, () => _gameSession.MoveNorth());
+            _userInputActions.Add(Key.Up, () => _gameSession.MoveNorth());
+            // move west
+            _userInputActions.Add(Key.A, () => _gameSession.MoveWest());
+            _userInputActions.Add(Key.Left, () => _gameSession.MoveWest());
+            // move south
+            _userInputActions.Add(Key.S, () => _gameSession.MoveSouth());
+            _userInputActions.Add(Key.Down, () => _gameSession.MoveSouth());
+            // move east
+            _userInputActions.Add(Key.D, () => _gameSession.MoveEast());
+            _userInputActions.Add(Key.Right, () => _gameSession.MoveEast());
+            // attack
+            _userInputActions.Add(Key.Z, () => _gameSession.AttackCurrentMonster());
+            // consume
+            _userInputActions.Add(Key.C, () => _gameSession.UseCurrentConsumable());
+
+            _userInputActions.Add(Key.I, () => SetTabFocusTo("InventoryTabItem"));
+            _userInputActions.Add(Key.Q, () => SetTabFocusTo("QuestsTabItem"));
+            _userInputActions.Add(Key.R, () => SetTabFocusTo("RecipesTabItem"));
+            _userInputActions.Add(Key.T, () => OnClick_DisplayTradeScreen(this, new RoutedEventArgs()));
+
+            // exit game
+            _userInputActions.Add(Key.Escape, () => Close());
+        }
+
+        private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if(_userInputActions.ContainsKey(e.Key)) {
+                _userInputActions[e.Key].Invoke();
+            }
+        }
+
+        private void SetTabFocusTo(string tabName)
+        {
+            foreach(object item in PlayerDataTabControl.Items) {
+                if(item is TabItem tabItem) {
+                    if(tabItem.Name == tabName) {
+                        tabItem.IsSelected = true;
+                        return;
+                    }
+                }
             }
         }
     }

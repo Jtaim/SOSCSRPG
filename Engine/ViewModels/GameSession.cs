@@ -42,6 +42,16 @@ namespace Engine.ViewModels
             set {
                 _currentLocation = value;
 
+                if(CurrentPlayer.CurrentWeapon == null && CurrentPlayer.Weapons.Count != 0) {
+                    var weapons = CurrentPlayer.Weapons;
+                    CurrentPlayer.CurrentWeapon = weapons.First();
+                }
+
+                if(CurrentPlayer.HasConsumable) {
+                    var consumable = CurrentPlayer.Consumables;
+                    CurrentPlayer.CurrentConsumable =consumable.First();
+                }
+
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(HasLocationToNorth));
                 OnPropertyChanged(nameof(HasLocationToEast));
@@ -211,7 +221,8 @@ namespace Engine.ViewModels
             }
         }
 
-        private void GetMonsterAtLocation() => CurrentMonster = CurrentLocation.GetMonster();
+        private void GetMonsterAtLocation()
+            => CurrentMonster = CurrentLocation.GetMonster();
 
         public void AttackCurrentMonster()
         {
@@ -242,6 +253,11 @@ namespace Engine.ViewModels
             }
             else {
                 RaiseMessage($"{CurrentPlayer.Name} has nothing to consume.");
+            }
+
+            if(CurrentPlayer.HasConsumable) {
+                var consumable = CurrentPlayer.Consumables;
+                CurrentPlayer.CurrentConsumable = consumable.First();
             }
         }
 

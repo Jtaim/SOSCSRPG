@@ -164,7 +164,6 @@
                                                 Binding="{Binding Item.Name, Mode=OneWay}"
                                                 Width="*"/>
                             <DataGridTextColumn Header="Qty"
-                                                IsReadOnly="True"
                                                 Width="Auto"
                                                 Binding="{Binding Quantity, Mode=OneWay}"/>
                             <DataGridTextColumn Header="Price"
@@ -197,6 +196,15 @@
                             <DataGridTextColumn Header="Name"
                                                 Binding="{Binding Name, Mode=OneWay}"
                                                 Width="*"/>
+                            <DataGridTemplateColumn MinWidth="75">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="OnClick_Craft"
+                                                Width="55"
+                                                Content="Craft"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -227,10 +235,10 @@
                 </Grid.ColumnDefinitions>
                 <!--Weapon Choice-->
                 <ComboBox Grid.Row="0" Grid.Column="0"
-                    Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"
-                    ItemsSource="{Binding CurrentPlayer.Weapons}"
-                    SelectedItem="{Binding CurrentPlayer.CurrentWeapon}"
-                    DisplayMemberPath="Name"/>
+                          Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"
+                          ItemsSource="{Binding CurrentPlayer.Weapons}"
+                          SelectedItem="{Binding CurrentPlayer.CurrentWeapon}"
+                          DisplayMemberPath="Name"/>
                 <!--Weapon Use-->
                 <Button Grid.Row="0" Grid.Column="2"
                         Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"

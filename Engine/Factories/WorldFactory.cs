@@ -1,7 +1,7 @@
-﻿using Engine.Models;
-using Engine.Shared;
-using System.IO;
+﻿using System.IO;
 using System.Xml;
+using Engine.Models;
+using Engine.Shared;
 
 namespace Engine.Factories
 {
@@ -80,7 +80,7 @@ namespace Engine.Factories
                 return;
             }
 
-            location.TraderHere = TraderFactory.GetTraderByName(traderHere.AttributeAsString("Name"));
+            location.TraderHere = TraderFactory.GetTraderByID(traderHere.AttributeAsInt("ID"));
         }
     }
 }

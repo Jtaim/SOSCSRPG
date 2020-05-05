@@ -1,6 +1,6 @@
-﻿using Engine.Models;
+﻿using System.Windows;
+using Engine.Models;
 using Engine.ViewModels;
-using System.Windows;
 
 namespace WPFUI
 {

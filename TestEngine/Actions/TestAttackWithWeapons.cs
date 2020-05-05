@@ -1,7 +1,6 @@
 ﻿using System;
 using Engine.Actions;
 using Engine.Factories;
-using Engine.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestEngine.Actions

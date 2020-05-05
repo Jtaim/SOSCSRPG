@@ -42,15 +42,7 @@ namespace Engine.ViewModels
             set {
                 _currentLocation = value;
 
-                if(CurrentPlayer.CurrentWeapon == null && CurrentPlayer.Weapons.Count != 0) {
-                    var weapons = CurrentPlayer.Weapons;
-                    CurrentPlayer.CurrentWeapon = weapons.First();
-                }
-
-                if(CurrentPlayer.HasConsumable) {
-                    var consumable = CurrentPlayer.Consumables;
-                    CurrentPlayer.CurrentConsumable =consumable.First();
-                }
+                UpdateItemsSelectionButtons();
 
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(HasLocationToNorth));
@@ -255,10 +247,7 @@ namespace Engine.ViewModels
                 RaiseMessage($"{CurrentPlayer.Name} has nothing to consume.");
             }
 
-            if(CurrentPlayer.HasConsumable) {
-                var consumable = CurrentPlayer.Consumables;
-                CurrentPlayer.CurrentConsumable = consumable.First();
-            }
+            UpdateItemsSelectionButtons();
         }
 
         public void CraftItemUsing(Recipe recipe)
@@ -273,6 +262,8 @@ namespace Engine.ViewModels
                         RaiseMessage($"You craft 1 {outputItem.Name}");
                     }
                 }
+
+                UpdateItemsSelectionButtons();
             }
             else {
                 RaiseMessage("You do not have the required ingredients:");
@@ -322,5 +313,20 @@ namespace Engine.ViewModels
 
         private void RaiseMessage(string message)
             => OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
+
+        private void UpdateItemsSelectionButtons()
+        {
+            // keep weapon combo-box populated 
+            if(CurrentPlayer.CurrentWeapon == null && CurrentPlayer.Weapons.Count != 0) {
+                var weapons = CurrentPlayer.Weapons;
+                CurrentPlayer.CurrentWeapon = weapons.First();
+            }
+
+            // keep consumable combo-box populated 
+            if(CurrentPlayer.HasConsumable) {
+                var consumable = CurrentPlayer.Consumables;
+                CurrentPlayer.CurrentConsumable = consumable.First();
+            }
+        }
     }
 }

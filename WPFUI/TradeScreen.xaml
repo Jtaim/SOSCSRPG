@@ -33,7 +33,7 @@
         <!--Player Inventory-->
         <DataGrid Grid.Row="2" Grid.Column="0"
                Margin="10"
-               ItemsSource="{Binding CurrentPlayer.GroupedInventory, Mode=OneWay}"
+               ItemsSource="{Binding CurrentPlayer.Inventory.GroupedInventory, Mode=OneWay}"
                AutoGenerateColumns="False"
                HeadersVisibility="Column"
                CanUserAddRows="False"
@@ -66,7 +66,7 @@
         <!--Traders Inventory-->
         <DataGrid Grid.Row="2" Grid.Column="1"
                   Margin="10"
-                  ItemsSource="{Binding CurrentTrader.GroupedInventory, Mode=OneWay}"
+                  ItemsSource="{Binding CurrentTrader.Inventory.GroupedInventory, Mode=OneWay}"
                   AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   CanUserAddRows="False"

@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Engine.ViewModels.GameSession">
+    <Position X="20.5" Y="4" Width="2.75" />
+    <InheritanceLine Type="Engine.BaseNotificationClass" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="16.312" Y="2.805" />
+        <Point X="16.312" Y="3.289" />
+        <Point X="21.875" Y="3.289" />
+        <Point X="21.875" Y="4" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="CurrentWorld" Type="Engine.Models.World" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="20.5" Y="9.625" />
+        <Point X="17.659" Y="9.625" />
+        <Point X="17.659" Y="10.562" />
+        <Point X="16.25" Y="10.562" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CurrentPlayer" Type="Engine.Models.Player" FixedFromPoint="true">
+      <Path>
+        <Point X="20.5" Y="8.625" />
+        <Point X="15" Y="8.625" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CurrentLocation" Type="Engine.Models.Location" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="20.5" Y="10.375" />
+        <Point X="20.125" Y="10.375" />
+        <Point X="20.125" Y="11.625" />
+        <Point X="18.75" Y="11.625" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CurrentMonster" Type="Engine.Models.Monster" FixedFromPoint="true">
+      <Path>
+        <Point X="20.5" Y="6.625" />
+        <Point X="17" Y="6.625" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CurrentTrader" Type="Engine.Models.Trader" FixedFromPoint="true">
+      <Path>
+        <Point X="20.5" Y="5.313" />
+        <Point X="19" Y="5.313" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAAgAAAAAEgEgAAQcAYgBIBEEAJsIAICAiQDCIAA=</HashCode>
+      <FileName>ViewModels\GameSession.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentWorld" />
+      <Property Name="CurrentPlayer" />
+      <Property Name="CurrentLocation" />
+      <Property Name="CurrentMonster" />
+      <Property Name="CurrentTrader" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Engine.Models.Location">
+    <Position X="17.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAAgAAgAAAIgAgQAAAAABAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Models\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.Player">
+    <Position X="13.5" Y="5.5" Width="1.5" />
+    <InheritanceLine Type="Engine.Models.LivingEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13" Y="4.625" />
+        <Point X="14.188" Y="4.625" />
+        <Point X="14.188" Y="5.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAgAAAAIAAAIEQEAAAAAAAgAAAAAAAAQAA=</HashCode>
+      <FileName>Models\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.Trader">
+    <Position X="17.5" Y="4.5" Width="1.5" />
+    <InheritanceLine Type="Engine.Models.LivingEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13" Y="4.25" />
+        <Point X="18.188" Y="4.25" />
+        <Point X="18.188" Y="4.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Trader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.Monster">
+    <Position X="15.5" Y="5" Width="1.5" />
+    <InheritanceLine Type="Engine.Models.LivingEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13" Y="4.438" />
+        <Point X="16.188" Y="4.438" />
+        <Point X="16.188" Y="5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAkAAAAAEAAAAAAAAIBAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.World">
+    <Position X="14.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Models\World.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.LivingEntity">
+    <Position X="10.75" Y="4" Width="2.25" />
+    <InheritanceLine Type="Engine.BaseNotificationClass" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16" Y="2.805" />
+        <Point X="16" Y="3.553" />
+        <Point X="11.062" Y="3.553" />
+        <Point X="11.062" Y="4" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AACEIAUAgAQIAAKAABEAEQQAACIAIBCBKAiQggAAAAE=</HashCode>
+      <FileName>Models\LivingEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.BaseNotificationClass">
+    <Position X="15" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseNotificationClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Engine.Models.GroupedInventoryItem">
+    <Position X="6.5" Y="4" Width="1.5" />
+    <InheritanceLine Type="Engine.BaseNotificationClass" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="15.25" Y="2.805" />
+        <Point X="15.25" Y="3.074" />
+        <Point X="7.25" Y="3.074" />
+        <Point X="7.25" Y="4" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAEABAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\GroupedInventoryItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.QuestStatus">
+    <Position X="8.5" Y="4" Width="1.5" />
+    <InheritanceLine Type="Engine.BaseNotificationClass" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="15.625" Y="2.805" />
+        <Point X="15.625" Y="3.289" />
+        <Point X="9.25" Y="3.289" />
+        <Point X="9.25" Y="4" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAABAAAAACAAAAAAA=</HashCode>
+      <FileName>Models\QuestStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.Recipe">
+    <Position X="7.75" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAoAAAAAAAACQAAAAAAAAAAAEAQAAAAAA=</HashCode>
+      <FileName>Models\Recipe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.Quest">
+    <Position X="12.25" Y="18.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAgkAAIAAAAAAQAAAAAAAAAAAAARAAAAAA=</HashCode>
+      <FileName>Models\Quest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.MonsterEncounter">
+    <Position X="17" Y="15.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\MonsterEncounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.ItemQuantity">
+    <Position X="19.75" Y="19.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAgAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\ItemQuantity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.ItemPercentage">
+    <Position X="17" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ItemPercentage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.Inventory">
+    <Position X="19.75" Y="15.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAEAAAAAAACAAAAAJAAAAAAAAAAAgAAAAAACAAEBA=</HashCode>
+      <FileName>Models\Inventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.GameItem">
+    <Position X="5.5" Y="18.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Engine.Models.GameItem.ItemCategory" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\GameItem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAQIAAAAAgAAAAAQAAAAAAAAAAAAAAAAACBQ=</HashCode>
+      <FileName>Models\GameItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Services.InventoryService">
+    <Position X="5.5" Y="13" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAQgAAAAAAkAAACAAAAAAA=</HashCode>
+      <FileName>Services\InventoryService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Shared.ExtensionMethods">
+    <Position X="1" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Shared\ExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Factories.WorldFactory">
+    <Position X="1" Y="15.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAACAAAAAAAAABAQAIAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Factories\WorldFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Factories.TraderFactory">
+    <Position X="3.25" Y="15.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAACAAAAAgAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Factories\TraderFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Factories.RecipeFactory">
+    <Position X="7.75" Y="15.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAACAAAAgAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\RecipeFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Factories.QuestFactory">
+    <Position X="12.25" Y="15.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACACAAAAAAAAAAAAAAAgAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Factories\QuestFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Factories.MonsterFactory">
+    <Position X="10" Y="15.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAACAAAAQAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\MonsterFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Factories.ItemFactory">
+    <Position X="5.5" Y="15.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAQAAACAAAAAAAAAAAAAAAQAAAABAAAAQAAAAAA=</HashCode>
+      <FileName>Factories\ItemFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Actions.Heal">
+    <Position X="0.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Heal.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Engine.Actions.BaseAction">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Actions\BaseAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Actions.AttackWithWeapon">
+    <Position X="2.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQIAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\AttackWithWeapon.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Engine.Services.LoggingService">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\LoggingServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.RandomNumberGenerator">
+    <Position X="0.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAgAAiAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RandomNumberGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.EventArgs.GameMessageEventArgs">
+    <Position X="2.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>EventArgs\GameMessageEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Services.MessageBroker">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAQAABAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\MessageBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Engine.Actions.IAction">
+    <Position X="2.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\IAction.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

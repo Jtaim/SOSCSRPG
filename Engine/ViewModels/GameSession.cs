@@ -42,6 +42,8 @@ namespace Engine.ViewModels
             set {
                 _currentLocation = value;
 
+                UpdateItemsSelectionButtons();
+
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(HasLocationToNorth));
                 OnPropertyChanged(nameof(HasLocationToEast));
@@ -243,6 +245,8 @@ namespace Engine.ViewModels
             else {
                 RaiseMessage($"{CurrentPlayer.Name} has nothing to consume.");
             }
+
+            UpdateItemsSelectionButtons();
         }
 
         public void CraftItemUsing(Recipe recipe)
@@ -257,6 +261,8 @@ namespace Engine.ViewModels
                         RaiseMessage($"You craft 1 {outputItem.Name}");
                     }
                 }
+
+                UpdateItemsSelectionButtons();
             }
             else {
                 RaiseMessage("You do not have the required ingredients:");
@@ -306,5 +312,20 @@ namespace Engine.ViewModels
 
         private void RaiseMessage(string message) =>
             OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
+
+        private void UpdateItemsSelectionButtons()
+        {
+            // keep weapon combo-box populated 
+            if(CurrentPlayer.CurrentWeapon == null && CurrentPlayer.Inventory.Weapons.Count != 0) {
+                var weapons = CurrentPlayer.Inventory.Weapons;
+                CurrentPlayer.CurrentWeapon = weapons.First();
+            }
+
+            // keep consumable combo-box populated 
+            if(CurrentPlayer.Inventory.HasConsumable) {
+                var consumable = CurrentPlayer.Inventory.Consumables;
+                CurrentPlayer.CurrentConsumable = consumable.First();
+            }
+        }
     }
 }

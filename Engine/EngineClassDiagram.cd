@@ -45,7 +45,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>EAAAAAgAAAAAEgEgAAQcAYgBIBEEAJsIAICAiQDCIAA=</HashCode>
+      <HashCode>EAAAAAAAAAACEAEgAAAcAYgBIBEEABsIAYCAiQACIAA=</HashCode>
       <FileName>ViewModels\GameSession.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -123,7 +123,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AACEIAUAgAQIAAKAABEAEQQAACIAIBCBKAiQggAAAAE=</HashCode>
+      <HashCode>AQCEIAUAgAQIAAKAABEAEQQAACIAIBCBKAiQggAAAAE=</HashCode>
       <FileName>Models\LivingEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -308,7 +308,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Engine.RandomNumberGenerator">
-    <Position X="0.5" Y="2.75" Width="2" />
+    <Position X="6.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAAAAgAAiAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RandomNumberGenerator.cs</FileName>
@@ -326,6 +326,28 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAQAABAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Services\MessageBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Models.Battle">
+    <Position X="23.75" Y="4" Width="2.5" />
+    <NestedTypes>
+      <Enum Name="Engine.Models.Battle.Combatant" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Battle.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAIAABACAAAAAAICAACQAAAAAAAAAAAAAABAKAAAA=</HashCode>
+      <FileName>Models\Battle.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Engine.EventArgs.CombatVictoryEventArgs">
+    <Position X="2.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\CombatVictoryEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Engine.Actions.IAction">

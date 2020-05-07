@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -38,6 +39,7 @@ namespace Engine.Factories
                 var monster = new Monster(node.AttributeAsInt("ID"),
                                           node.AttributeAsString("Name"),
                                           $".{rootImagePath}{node.AttributeAsString("ImageName")}",
+                                          Convert.ToInt32(node.SelectSingleNode("./Dexterity").InnerText),
                                           node.AttributeAsInt("MaximumHitPoints"),
                                           ItemFactory.CreateGameItem(node.AttributeAsInt("WeaponID")),
                                           node.AttributeAsInt("RewardXP"),

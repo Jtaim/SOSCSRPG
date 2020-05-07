@@ -38,6 +38,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -52,20 +53,24 @@
             <Label Grid.Row="1" Grid.Column="1"
                    Content="{Binding CurrentPlayer.CharacterClass, Mode=OneWay}"/>
             <Label Grid.Row="2" Grid.Column="0"
-                   Content="Hit points:"/>
+                   Content="Dexterity"/>
             <Label Grid.Row="2" Grid.Column="1"
-                   Content="{Binding CurrentPlayer.CurrentHitPoints, Mode=OneWay}"/>
+                   Content="{Binding CurrentPlayer.Dexterity}"/>
             <Label Grid.Row="3" Grid.Column="0"
-                   Content="Gold:"/>
+                   Content="Hit points:"/>
             <Label Grid.Row="3" Grid.Column="1"
-                   Content="{Binding CurrentPlayer.Gold, Mode=OneWay}"/>
+                   Content="{Binding CurrentPlayer.CurrentHitPoints, Mode=OneWay}"/>
             <Label Grid.Row="4" Grid.Column="0"
-                   Content="XP:"/>
+                   Content="Gold:"/>
             <Label Grid.Row="4" Grid.Column="1"
-                   Content="{Binding CurrentPlayer.ExperiencePoints, Mode=OneWay}"/>
+                   Content="{Binding CurrentPlayer.Gold, Mode=OneWay}"/>
             <Label Grid.Row="5" Grid.Column="0"
-                   Content="Level:"/>
+                   Content="XP:"/>
             <Label Grid.Row="5" Grid.Column="1"
+                   Content="{Binding CurrentPlayer.ExperiencePoints, Mode=OneWay}"/>
+            <Label Grid.Row="6" Grid.Column="0"
+                   Content="Level:"/>
+            <Label Grid.Row="6" Grid.Column="1"
                    Content="{Binding CurrentPlayer.Level, Mode=OneWay}"/>
         </Grid>
         <!--Game Play-->

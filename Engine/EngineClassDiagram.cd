@@ -123,7 +123,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AQCEIAUAgAQIAAKAABEAEQQAACIAIBCBKAiQggAAAAE=</HashCode>
+      <HashCode>AQCEIAWIgAQIAAKAABEAEQQAACIAIBCBKAiQggAAAAE=</HashCode>
       <FileName>Models\LivingEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -209,8 +209,11 @@
   </Class>
   <Class Name="Engine.Models.GameItem">
     <Position X="5.5" Y="18.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
-      <Enum Name="Engine.Models.GameItem.ItemCategory" Collapsed="true">
+      <Enum Name="Engine.Models.GameItem.ItemCategory">
         <TypeIdentifier>
           <NewMemberFileName>Models\GameItem.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -330,8 +333,11 @@
   </Class>
   <Class Name="Engine.Models.Battle">
     <Position X="23.75" Y="4" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
-      <Enum Name="Engine.Models.Battle.Combatant" Collapsed="true">
+      <Enum Name="Engine.Models.Battle.Combatant">
         <TypeIdentifier>
           <NewMemberFileName>Models\Battle.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -348,6 +354,23 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EventArgs\CombatVictoryEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine.Services.CombatService">
+    <Position X="26.5" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Engine.Services.CombatService.Combatant">
+        <TypeIdentifier>
+          <NewMemberFileName>Services\CombatService.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Services\CombatService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Engine.Actions.IAction">

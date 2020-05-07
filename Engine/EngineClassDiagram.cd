@@ -45,7 +45,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAACEAEgAAAcAYgBIBEEABsIAYCAiQACIAA=</HashCode>
+      <HashCode>MAAAAAAAAAACEAEgAAAcAYgBIBEEABsIAYCAiQACIAA=</HashCode>
       <FileName>ViewModels\GameSession.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -281,7 +281,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Engine.Actions.Heal">
-    <Position X="0.5" Y="9" Width="1.5" />
+    <Position X="0.5" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Actions\Heal.cs</FileName>
@@ -289,14 +289,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Engine.Actions.BaseAction">
-    <Position X="0.5" Y="6" Width="1.5" />
+    <Position X="0.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>Actions\BaseAction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Engine.Actions.AttackWithWeapon">
-    <Position X="2.5" Y="9" Width="1.5" />
+    <Position X="2.5" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQIAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Actions\AttackWithWeapon.cs</FileName>
@@ -336,15 +336,8 @@
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
-    <NestedTypes>
-      <Enum Name="Engine.Models.Battle.Combatant">
-        <TypeIdentifier>
-          <NewMemberFileName>Models\Battle.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAIAABACAAAAAAICAACQAAAAAAAAAAAAAABAKAAAA=</HashCode>
+      <HashCode>AAAAIAAAACAAAAAAICAACQAAAAAAAAAAAAAABAKAAAA=</HashCode>
       <FileName>Models\Battle.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -373,8 +366,15 @@
       <FileName>Services\CombatService.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Engine.Services.SaveGameService">
+    <Position X="0.5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIEAAAAAAEAAAAAAAAAAAAUAAAAAAAAERAAAAAA=</HashCode>
+      <FileName>Services\SaveGameService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="Engine.Actions.IAction">
-    <Position X="2.25" Y="6" Width="1.5" />
+    <Position X="2.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Actions\IAction.cs</FileName>

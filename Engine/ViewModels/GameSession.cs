@@ -42,8 +42,6 @@ namespace Engine.ViewModels
             set {
                 _currentLocation = value;
 
-                UpdateItemsSelectionButtons();
-
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(HasLocationToNorth));
                 OnPropertyChanged(nameof(HasLocationToEast));
@@ -231,7 +229,6 @@ namespace Engine.ViewModels
                 _messageBroker.RaiseMessage($"{CurrentPlayer.Name} has nothing to consume.");
             }
 
-            UpdateItemsSelectionButtons();
         }
 
         public void CraftItemUsing(Recipe recipe)
@@ -247,7 +244,6 @@ namespace Engine.ViewModels
                     }
                 }
 
-                UpdateItemsSelectionButtons();
             }
             else {
                 _messageBroker.RaiseMessage("You do not have the required ingredients:");
@@ -279,20 +275,5 @@ namespace Engine.ViewModels
 
         private void OnCurrentPlayerLeveledUp(object sender, System.EventArgs eventArgs) =>
             _messageBroker.RaiseMessage($"You are now level {CurrentPlayer.Level}!");
-
-        private void UpdateItemsSelectionButtons()
-        {
-            // keep weapon combo-box populated 
-            if(CurrentPlayer.CurrentWeapon == null && CurrentPlayer.Inventory.Weapons.Count != 0) {
-                var weapons = CurrentPlayer.Inventory.Weapons;
-                CurrentPlayer.CurrentWeapon = weapons.First();
-            }
-
-            // keep consumable combo-box populated 
-            if(CurrentPlayer.Inventory.HasConsumable) {
-                var consumable = CurrentPlayer.Inventory.Consumables;
-                CurrentPlayer.CurrentConsumable = consumable.First();
-            }
-        }
     }
 }

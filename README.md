@@ -8,9 +8,6 @@ Using [Visual Studio Community 2019](https://www.visualstudio.com/en-us/products
 - project <b>WPFUI</b> is a WPF windows application (.NET Framework 4.7.2)
 - project <b>Engine</b> is a Class Library (.NET Framework 4.7.2)
 
-I tried to add tags for the some for points from Scott's lessons.
-
-I tried WPF .net core 3.1 but can not get images to display :(<br>
 
 ### Resources:
 - [Scott Lilly](https://scottlilly.com/)
@@ -18,7 +15,6 @@ I tried WPF .net core 3.1 but can not get images to display :(<br>
 - [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/en-us/dotnet/framework/wpf/)
 - [Additional .Net development information](https://dotnet.microsoft.com/download)
 - [.Net on GitHub](https://github.com/dotnet)
-- [WPF.Net Core: 3.1](https://docs.microsoft.com/en-us/dotnet/api/?view=netcore-3.1)
 
 
  ##### Disclaimer

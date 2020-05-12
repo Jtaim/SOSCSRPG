@@ -59,7 +59,7 @@ namespace Engine.Services
                                    (int)data[nameof(GameSession.CurrentPlayer)][nameof(Player.Dexterity)],
                                    (int)data[nameof(GameSession.CurrentPlayer)][nameof(Player.MaximumHitPoints)],
                                    (int)data[nameof(GameSession.CurrentPlayer)][nameof(Player.CurrentHitPoints)],
-                                   
+
                                    (int)data[nameof(GameSession.CurrentPlayer)][nameof(Player.Gold)]);
                     break;
                 default:
